@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018-2019 chenhw2 <https://github.com/chenhw2>
+# Copyright (C) 2018-2020 chenhw2 <https://github.com/chenhw2>
 #
 # This is free software, licensed under the GNU General Public License v3.
 # See /LICENSE for more information.
@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-plugin
-PKG_VERSION:=1.1.0
-PKG_RELEASE:=20190219
+PKG_VERSION:=1.3.0
+PKG_RELEASE:=20200205
 PKG_MAINTAINER:=chenhw2 <https://github.com/chenhw2>
 
 # OpenWrt ARCH: arm, i386, x86_64, mips, mipsel
@@ -17,7 +17,7 @@ PKG_MAINTAINER:=chenhw2 <https://github.com/chenhw2>
 PKG_ARCH:=$(ARCH)
 BIN_ARCH:=$(ARCH)
 ifeq ($(ARCH),mips)
-    BIN_ARCH:=mips_sf
+	BIN_ARCH:=mips_sf
 endif
 ifeq ($(ARCH),mipsel)
 	PKG_ARCH:=mips
@@ -30,6 +30,10 @@ endif
 ifeq ($(ARCH),x86_64)
 	PKG_ARCH:=amd64
 	BIN_ARCH:=amd64
+endif
+ifeq ($(ARCH),aarch64)
+	PKG_ARCH:=arm64
+	BIN_ARCH:=arm64
 endif
 ifeq ($(ARCH),arm)
 	BIN_ARCH:=arm7
